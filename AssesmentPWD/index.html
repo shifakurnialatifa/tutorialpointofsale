@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <nav class="navbar navbar-expand-sm bg-primary navbar-white">
+            <div class="container-fluid">
+              <ul class="navbar-nav">
+                <li class="navbar-white"> 
+                  <a class="nav-link Strabhak Mart" href="#">Starbhak Mart</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+    </div>
+
+  <div class="container-fluid">
+  <div class="row">
+    <div id="content"  class="col-md-4">
+      <button type="button">
+        <select class="bg-info" class="btn btn-primary">
+          <option hidden>Jenis Pemesanan</option>
+          <option>Take Away</option>
+          <option>Delivery</option>
+        </select>
+      </button>
+      <button type="button" class="btn btn-primary mt-2 " aria-expanded="false" style="width: 100%;">
+        <i class='bx bxs-user bx-sm'></i>
+        Nama Kasir
+      </button>
+      <div class="border border-secondary" style="margin: 8px; height: 25pc; overflow: scroll;">
+        <div class="awalan">
+          <div class="card-body" style="height: 20px; margin-left: 10px; margin-top: 10px; overflow: auto;">
+            <div class="card">
+              <p>Dimsum</p>
+              <p>unit price : </p>
+              <p>Rp.15.000</p>
+              <p style="margin-left: 10pc;">Quantity : </p>
+              <p><i class='bx bx-trash bx-md' style="margin-left: 300px;"></i></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="margin-top: 2px;">
+          <div class="padding-left: 10px; margin-top: 2px;">
+              <div class="col-md-12">
+                <div class="garis">
+                  <h6 style="display: flex;">Discount: </h6>
+                </div>
+                <div class="garis" style="justify-content: space-between;">
+                  <h6>tax:</h6>
+                  <h6 style="margin-right: 2pc;" id="pajak">Rp.500</h6>
+                </div>
+                <div class="garis bg-primary"   id="total" style="justify-content: space-between;">
+                  <h6>Total Amount: </h6>
+                  <h6 id="total" style="margin-left: 300;">Rp.0</h6>
+                </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+      <div class="col-md-8">
+        <div class="card mb-3" style="margin-top: 10px;">
+          <div class="card-body" style="width: 100%; display: flex; align-items: center;">
+              <div style="flex: 1;">Item List</div>
+              <i class='bx bx-search bx-sm pull-right'></i>
+              <i class='bx bx-dots-vertical-rounded bx-sm'></i>
+              <i class='bx bx-transfer-alt bx-sm bx-rotate-90' ></i>
+            </div>
+        <div class="card rounded-0">
+          <div class="row" style="padding-left: 10px; height: 50%; display: flex; overflow-y: scroll">
+
+            <div class="col-md-2">
+              <div class="card rounded-0" onclick="tambahpesanan('Dimsum'), 1, 15.000" style="width: 10rem; height: 13rem; margin-top: 10%; margin-left: 4%;">
+                  <img src="Dimsum (3).png" class="card-img-top" alt="..." style="width: 120px; padding-top: 8px;">
+                  <div class="card-body">
+                  <p>Dimsum</p>
+                  <b>Rp.15.000</b>
+              </div>
+            </div>
+          </div>
+
+            <div class="col-md-2">
+            <div class="card rounded-0"  onclick="tambahpesanan('Donat'), 1, 20.000" style="width: 10rem; height: 13rem; margin-top: 10%; margin-left: 4%;">
+              <img src="Donat.png" class="card-img-top" alt="..."style="width: 120px; padding-top: 8px;">
+              <div class="card-body">
+              <p>Donat</p>
+              <b>Rp.20.000</b>
+              </div>
+            </div>
+            </div>
+
+            <div class="col-md-2">
+            <div class="card rounded-0" onclick="tambahpesanan('Es Pisang Ijo'), 1, 30.000"  style="width: 10rem; height: 13rem; margin-top: 10%; margin-left: 4%;">
+              <img src="Es Pisang Ijo.png" class="card-img-top" alt="..."style="width: 120px; padding-top: 8px;">
+              <div class="card-body">
+              <p>Es Pisang Ijo</p>
+              <b>Rp.30.000</b>
+              </div>
+            </div>
+            </div>
+
+            <div class="col-md-2">
+            <div class="card rounded-0" style="width: 10rem; height: 13rem; margin-top: 10%; margin-left: 4%;">
+            <img src="Nasi Ayam Bakar.png" class="card-img-top" alt="..." style="width: 120px; padding-top: 8px;">
+            <div class="card-body">
+            <p class="card-text">Nasi Ayam Bakar</p>
+            <b>Rp.35.000</b>
+          </div>
+        </div>
+          </div>
+
+            <div class="col-md-2">
+            <div class="card rounded-0" onclick="tambahpesanan('Nasi Goreng'), 1, 40.000"  style="width: 10rem; height: 13rem; margin-top: 10%; margin-left: 4%;">
+              <img src="Nasi Goreng.png" class="card-img-top" alt="..."style="width: 120px; padding-top: 8px;">
+              <div class="card-body">
+              <p>Nasi Goreng</p>
+              <b>Rp.40.000</b>
+              </div>
+            </div>
+            </div>
+
+            <div class="col-md-2">
+            <div class="card rounded-0" onclick="tambahpesanan('Pempek'), 1, 35.000"  style="width: 10rem; height: 13rem; margin-top: 10%; margin-left: 4%;">
+              <img src="Pempek (1).png" class="card-img-top" alt="..."style="width: 120px; padding-top: 8px;">
+              <div class="card-body">
+              <p>Pempek</p>
+              <b>Rp.35.000</b>
+              </div>
+            </div>
+            </div>
+
+            <div class="col-md-2">
+            <div class="card rounded-0"  onclick="tambahpesanan('Pudding'), 1, 22.000"  style="width: 10rem; height: 13rem; margin-top: 10%; margin-left: 4%;">
+              <img src="Pudding (1).png" class="card-img-top" alt="..."style="width: 120px; padding-top: 8px:">
+              <div class="card-body">
+              <p>Pudding</p>
+              <b>Rp.22.000</b>
+            </div>
+          </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="tomol-submit" style="text-align: right; margin-top: 10px;">
+      <button onclick="print()" class="btn btn-primary" style="width: 15pc;">
+        <p><i class='bx bx-printer'>Pyment ( ctrl + P)</i></p>
+      </button>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+
+  <script src="script.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+  
+  function print() {
+      var contentDiv = document.getElementById('content');
+      var contentToPrint = contentDiv.innerHTML;
+      var newWindow = window.open('', '_blank');
+      newWindow.document.open();
+      newWindow.document.write(  contentToPrint  );
+      newWindow.document.close();
+      newWindow.print();
+    }
+    var cart = [];
+    function tambahpesanan(name, count, price) {
+        //mendapatkan array saat ini
+        var existingItem = cart.find(element => element.name === name);
+        //memeriksa array sudah ada atau belum
+        if (!existingItem) {
+            cart.push({ name: name, count: count, price: price });
+        } else {
+            existingItem.count++;
+        }
+        showCartList();
+    }
+
+
+
+    function showCartList() {
+        $(".awalan").empty();
+        totalHarga = 0 ;
+        cart.forEach(function (item, index) {
+            $(".awalan").append(`  <div class="col-md-2">
+              <div class="card rounded-0" onclick="tambahpesanan('Dimsum'), 1, 15.000" style="width: 10rem; height: 13rem; margin-top: 10%; margin-left: 4%;">
+                  <img src="Dimsum (3).png" class="card-img-top" alt="..." style="width: 120px; padding-top: 8px;">
+                  <div class="card-body">
+                  <p>Dimsum</p>
+                  <b>Rp.15.000</b>
+              </div>
+            </div>
+          </div>`);
+        })
+        console.log(cart)
+        var tot = 0;
+        var pjkpersentase = 0.1;
+        var totalpajak = 0;
+        for(var i = 0; i < cart.length; i++) {
+            tot = tot + (cart[i].count * cart[i].price)
+        }
+        var Pajak = tot * pjkpersentase;
+        totalpajak += Pajak;
+        var total = Pajak + tot;
+
+        $("#pajak").text("Rp. " + Pajak)
+        $("#total").text("Rp. " + total)
+    }
+    function Hapus(index) {
+        let text;
+        if (confirm (cart.splice(index, 1) && "Apakah Anda Yakin Untuk menghapus pesanan?")) {
+            showCartList();
+        } 
+
+    }
+
+    
+
+</script>
+</body>
+</html>
